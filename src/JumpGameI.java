@@ -11,33 +11,22 @@
  * 
  * A = [3,2,1,0,4], return false.
  * 
- * 动态规划。 o(n)
- * 到达第k个元素前的最远距离为max
- * 若max < k, 则无法跳到k位置，返回false
- * 
- * max_dis_at_k = max > k + num[k] ? max : k + num[k]
- * 
- * （k+nums[k] ：： 表达为从k位置起跳的最远距离
+ * Time O(n), Space O(1)
  * 
  * @author cassie9082
  * 
  */
 public class JumpGameI {
+	//Greedy
 	public boolean canJump(int[] nums) {
 		if(nums == null || nums.length == 0){
 			return false;
 		}
 		
-		int max = nums[0];
-		for(int i = 1; i < nums.length; i++){
-			if(i > max){
-				return false;
-			}else if(nums[i] + i >= nums.length - 1){
-				return true;
-			}else if(nums[i] + i > max){
-				max = nums[i] + i;
-			}
-		}
-		return true;
+		int reach = 0;//the rightmost that can jump to
+        for(int i = 0; i <= reach && reach < nums.length; i++){
+            reach = Math.max(reach, i + nums[i]);
+        }
+        return reach >= nums.length - 1;
 	}
 }
