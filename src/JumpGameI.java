@@ -18,7 +18,7 @@
  */
 public class JumpGameI {
 	//Greedy
-	public boolean canJump(int[] nums) {
+	public static boolean canJump(int[] nums) {
 		if(nums == null || nums.length == 0){
 			return false;
 		}
@@ -28,5 +28,10 @@ public class JumpGameI {
             reach = Math.max(reach, i + nums[i]);
         }
         return reach >= nums.length - 1;
+	}
+	
+	public static void main(String[] args){
+		int[] nums = {3, 2, 1, 0, 4};
+		System.out.println(canJump(nums));
 	}
 }

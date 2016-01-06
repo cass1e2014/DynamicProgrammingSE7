@@ -19,7 +19,7 @@
  */
 public class JumpGameII {
 	//Greedy
-	public int jump(int[] nums) {
+	public static int jump(int[] nums) {
 		if(nums == null || nums.length == 0){
 			return -1;
 		}
@@ -37,5 +37,10 @@ public class JumpGameII {
 			}
 		}
 		return jumps;
+	}
+	
+	public static void main(String[] args){
+		int[] nums = {2, 3, 1, 1, 4};
+		System.out.println(jump(nums));
 	}
 }

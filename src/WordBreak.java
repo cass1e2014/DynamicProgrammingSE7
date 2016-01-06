@@ -35,7 +35,7 @@ public class WordBreak {
     //use DP
     public static boolean wordBreak(String s, Set<String> wordDict) {
         if(s == null || s.length() == 0)    return true;
-        //dp[i] means [0,i) is breakable
+        //dp[j] means [0,j) is breakable
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
         for(int i = 1; i <= s.length(); i++){
